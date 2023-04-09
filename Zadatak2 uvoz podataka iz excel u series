@@ -5,33 +5,58 @@ wb=openpyxl.load_workbook('Data-for-practice.xlsx') #ucitava file
 ws=wb['Solution']
 
 c=ws['E5':'E92']
-print(c)
+#print(c)
 d=ws['F5':'F92']
-print(d)
+#print(d)
 e=ws['G5':'G92']
-print(e)
+#print(e)
 
 cost=[]
 for x in c:
     cost.append(x[0].value)
-print(cost)
+# print(cost)
 
 seling=[]
 for x in d:
     seling.append(x[0].value)
-print(seling)
+# print(seling)
 
 profit=[]
 for x in e:
     profit.append(x[0].value)
-print(profit)
+# print(profit)
 
 costs=panda.Series(cost)
-print(costs)
-print('======================')
+costs.rename('Cost',inplace=True)
+# print(costs)
+# print('======================')
 selings=panda.Series(seling)
-print(selings)
-print('======================')
+selings.rename('Seling',inplace=True)
+# print(selings)
+# print('======================')
 profits=panda.Series(selings-costs)
-print(profits)
-print('======================')
+profits.rename('Profit',inplace=True)
+# print(profits)
+# print('======================')
+
+a=costs.sum()
+b=selings.sum()
+p=((b-a)/a)*100
+# print(profits.max())
+# print('=================')
+# print('=================')
+# print(costs.sum())
+# print('=================')
+# print(selings.sum())
+# print('=================')
+# print('=================')
+# print(a,b,p)
+# print(p)
+
+#for i in profits:
+    #print(int(i))
+
+
+for i in profits:
+    if i>100:
+        print(profits[profits==i])
