@@ -1,0 +1,37 @@
+import pandas as panda
+import openpyxl as openpyxl
+
+wb=openpyxl.load_workbook('Data-for-practice.xlsx') #ucitava file
+ws=wb['Solution']
+
+c=ws['E5':'E92']
+print(c)
+d=ws['F5':'F92']
+print(d)
+e=ws['G5':'G92']
+print(e)
+
+cost=[]
+for x in c:
+    cost.append(x[0].value)
+print(cost)
+
+seling=[]
+for x in d:
+    seling.append(x[0].value)
+print(seling)
+
+profit=[]
+for x in e:
+    profit.append(x[0].value)
+print(profit)
+
+costs=panda.Series(cost)
+print(costs)
+print('======================')
+selings=panda.Series(seling)
+print(selings)
+print('======================')
+profits=panda.Series(selings-costs)
+print(profits)
+print('======================')
