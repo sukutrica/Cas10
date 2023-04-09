@@ -1,6 +1,7 @@
-pip install pandas
-
 import pandas as panda
+import openpyxl as openpyxl
+
+
 # #l=[1,2,3,4]
 # #print(l)
 # # s=panda.Series([1,2,3,4])  #sa leve strane izbacuje indekse, a sa desne vrednosti
@@ -90,7 +91,7 @@ import pandas as panda
 # print('=======')
 # print(s11.sort_values(ascending=False,inplace=True))    #vraća seriju sa obrnutim sortiranim vrednostima serije
 
-s=panda.Series(list(range(1,5)),index=[list(range(1,51))])
+s=panda.Series(list(range(1,51)),index=[list(range(1,51))])
 
 print(s.sum())
 print(s.product())  #faktorijal
@@ -101,7 +102,26 @@ print(s.median())       #sredina niza
 print(s.agg(['sum','min','product','median','max']))
 
 
+s3=panda.Series({'a':1.15,'b':5,'c':8,'d':12,},index=['b','d','c','h','j'])
+print(s3)
+print(s3.dropna()) #izbacuje iz stampe prazne vrednosti
+
+print(s3.fillna(0)) #menja NA vresnosti
+
+
+r={'Veljko':70000,'Nikola':80000,'Marijan':60000,'Ana':100000,'Milena':65000}
 
 
 
+s=panda.Series({'Veljko':70000,'Nikola':80000,'Marijan':60000,'Ana':100000,'Milena':65000})
+print(s)
+print('Prosecna plata je: ', s.mean())
+print('Prosecna bolja plata je: ',s.median())
+print(s.sort_values().tail(3))
+print(s.sort_values(inplace=True))
+print(s[-3:])
+print(s.head(3))
+print(s.tail(3))
+s=s.rename("Radnici",inplace=True)
+print(s)
 
