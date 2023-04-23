@@ -1,3 +1,5 @@
+pip install pandas
+pip install panda
 import pandas as panda
 import openpyxl as openpyxl
 
